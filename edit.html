@@ -1,0 +1,444 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📄 Mathuranath B - Editor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 contenteditable="true" id="header-name">Mathuranath B</h1>
+            <p contenteditable="true" id="header-title">Software Engineer</p>
+        </header>
+
+        <div class="editor-controls">
+            <button id="saveDraftBtn">Save Draft</button>
+            <button id="publishBtn">Publish Profile</button>
+        </div>
+
+        <main>
+            <section id="introduction" class="editable-section">
+                <h2 contenteditable="true">Introduction</h2>
+                <p contenteditable="true" id="intro-paragraph">A devout engineer with substantial experience in building performant software systems using microservices, batch systems, and web-applications with Java, JavaScript/React ecosystem of frameworks.  Talented in designing realtime systems, modelled APIs and Data on relational, NoSQL databases  working in conjunction with distributed cache systems. Quite driven towards execution, fine tuning for performance, availability and building maintainable and reliable software by design.</p>
+            </section>
+
+            <section id="work-experience" class="editable-section">
+                <h2 contenteditable="true">Work Experience</h2>
+                <div class="job">
+                    <h3 contenteditable="true">Staff Engineer, PayPal, India</h3>
+                    <p contenteditable="true">April 2022-Present</p>
+                    <ul contenteditable="true">
+                        <li>Researched and built a Vector similarity matching to screen customers against known Fraudulent/Flagged/Terrorist/PEP Entities which was earlier based on text similarity. This was built on technologies that power AI systems.</li>
+                        <li>Led a cross-functional team to build a List Search system with new age tech using Next JS, React on frontend with a mixed backend of Lucene indexes, Oracle databases. Coordinated by Microservices and Offline Batch systems</li>
+                        <li>Led a team of five to eliminate full tool licenses of LexisNexis, Dun & Bradstreet, Thomson Reuters products by integrating the APIs to bring a seamless and uniform UI for back-office investigations. Running costs savings by a million USD</li>
+                        <li>Liasing with Vendor teams, Team leadership, Architecture, UI</li>
+                        <li>Led our team to build a real-time integration with external vendors for compliance verification of PayPal crypto transactions in record time. Enabling PayPal wide launch for Cryptocurrency. Platform has supported transactions more than 2.5 Billion USD (till 2024)</li>
+                        <li>Coordinating with cross functional teams, liasing with external vendors</li>
+                        <li>Designed and Architected Customer Insights Platform with UI bringing the information from accounts, users, transactions, merchants, financial instruments, cases, multiple legacy platforms, support chats other data from PayPal Inc. to give a 360 of a customer</li>
+                        <li>GraphQL, UI Architecture, Widget architecture, Techinical leadership, Node.js, React</li>
+                        <li>Helped build, scale the team through hiring, identifying top candidates and grooming for their development</li>
+                        <li>Mentored and closely worked with several interns during their internships, groomed them 1-1 and brought the best out of them to help them land full-time at PayPal</li>
+                    </ul>
+                </div>
+                <div class="job">
+                    <h3 contenteditable="true">Senior Software Engineer, PayPal, India</h3>
+                    <p contenteditable="true">April 2019 - March 2022</p>
+                    <ul contenteditable="true">
+                        <li>Built a real-time distributed data caching for payments compliance to bring down the overall payments and checkout time</li>
+                        <li>Designed and developed several microservices (REST, GraphQL) hosting APIs of customers, transactions data sitting on a distributed datalake hosting PayPal, Venmo, Xoom and other subsidiaries of PayPal Inc.</li>
+                    </ul>
+                </div>
+                <div class="job">
+                    <h3 contenteditable="true">Software Engineer II, PayPal, India</h3>
+                    <p contenteditable="true">April 2017 - March 2019</p>
+                    <ul contenteditable="true">
+                        <li>Consolidated the case management views of the subsidiaries of PayPal into a single view, bringing down the average case handling time by 3-5 times</li>
+                        <li>Migrated legacy applications in C++, Java components to a company standard Java framework, brining instrumentation, logging, TLS 1.2, improving maintainability, upgradability and security</li>
+                        <li>Designed and developed APIs on NoSQL databases for compliance platform to liaise with regulators (OFAC, FINTRAC, AUSTRAC) for uploading the disclosures of completed investigations</li>
+                    </ul>
+                </div>
+                <div class="job">
+                    <h3 contenteditable="true">IT Analyst, Digitate (TCS), Pune, India</h3>
+                    <p contenteditable="true">October 2016 - March 2017</p>
+                    <ul contenteditable="true">
+                        <li>Built ML Models to find out exceptions in invoices and payments in P2P flows for Manufacturing and Automotive companies (Dow chemicals, Exxon Mobil etc.)</li>
+                        <li>Designed and developed an analytics framework built upon hybrid databases (BigData & RDBMS) supporting Machine Learning Algorithms written in Java, Scala and Python</li>
+                    </ul>
+                </div>
+                <div class="job">
+                    <h3 contenteditable="true">Systems Engineer, Digitate (TCS), India</h3>
+                    <p contenteditable="true">July 2013 - September 2016</p>
+                    <ul contenteditable="true">
+                        <li>Fully owned the design and development of a system to interface with all the external ticketing systems; integrated ServiceNow, Remedy, Salesforce, Internal-IT etc. under one roof. Served as the entrance of the automation platform that is “ignio by Digitate”</li>
+                        <li>Completely owned the research, analysis, design and development of building a flexible MS Windows remote connector retaining LIVE sessions, which enabled the automation flows to operate on all the Windows Servers running OS version above Windows Server 2000. A game-changer for the Ignio IT Automation Platform which until then had only supported Linux, *Nix connectors using SSH</li>
+                        <li>Microsoft Windows connector enabled TCS Digitate Vertical to secure business clients running on windows servers; was also awarded Star of the Year for this feat</li>
+                        <li>Developed a niche SMS Notification system using GSM modems and Samsung Phones, learnt and used an arcane “Hayes AT command set” instructions sent via Serial/COM Ports</li>
+                    </ul>
+                </div>
+                <div class="job">
+                    <h3 contenteditable="true">Freelance Software Consultant</h3>
+                    <p contenteditable="true">January 2014-Present</p>
+                    <ul contenteditable="true">
+                        <li>Designed and architected IoT communication system for an agriculture startup to setup communication with the deployed control systems in the customer farms</li>
+                        <li>Designed and architected OTA (Over the Air) Upgrades for the control systems along with switching to RTOS based applications over simple bare-metal programs</li>
+                        <li>Designed and developed a web applications to manage school photo gallery, publish time schedule and maintain public website of a renowned high-school</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="skills" class="editable-section">
+                <h2 contenteditable="true">Skills</h2>
+                <div class="skills-row">
+                    <div class="skill-category">
+                        <h3 contenteditable="true">Languages & Frameworks</h3>
+                        <ul contenteditable="true">
+                            <li>Java, Spring (Batch, API)</li>
+                            <li>C/C++, Python</li>
+                            <li>JavaScript/TypeScript</li>
+                            <li>Node.js, React</li>
+                            <li>NextJS, Remix, Express</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3 contenteditable="true">Platforms & Infrastructure</h3>
+                        <ul contenteditable="true">
+                            <li>SQL/NoSQL</li>
+                            <li>Postgres, Oracle, SQLite</li>
+                            <li>BigQuery, Hadoop, Couchbase</li>
+                            <li>Redis, JunoDB, Caching, Real-time systems</li>
+                            <li>ActiveMQ, RabbitMQ</li>
+                            <li>REST, GraphQL, Protobuf</li>
+                            <li>GCP, AWS - Compute, Data</li>
+                            <li>GitHub, Jenkins CI/CD, Docker</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="skills-row">
+                    <div class="skill-category">
+                        <h3 contenteditable="true">Architecture</h3>
+                        <ul contenteditable="true">
+                            <li>Architecture & Design</li>
+                            <li>Prototyping</li>
+                            <li>Batch, Event driven, Real-time</li>
+                            <li>Data Modelling</li>
+                            <li>Performance & Instrumentation</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3 contenteditable="true">AI/ML</h3>
+                        <ul contenteditable="true">
+                            <li>Feature Engg, Model Training</li>
+                            <li>Vector Embedding, Indexing</li>
+                            <li>RAG, Graph integration with LLM</li>
+                            <li>LLM integrations with MCP</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3 contenteditable="true">Leadership</h3>
+                        <ul contenteditable="true">
+                            <li>Team leadership</li>
+                            <li>Mentoring</li>
+                            <li>Communication</li>
+                            <li>Cross-team collaboration</li>
+                            <li>Ambiguity Resolution</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section id="education" class="editable-section">
+                <h2 contenteditable="true">Education</h2>
+                <div class="education-item">
+                    <h3 contenteditable="true">Bachelor of Technology, SASTRA University, Thanjavur</h3>
+                    <p contenteditable="true">July 2009 - May 2013</p>
+                    <ul contenteditable="true">
+                        <li>Metchatronics, GPA: 8.58</li>
+                    </ul>
+                </div>
+                <div class="education-item">
+                    <h3 contenteditable="true">Higher Secondary, Kendriya Vidyalaya No.1, Madurai</h3>
+                    <p contenteditable="true">2007-2009</p>
+                    <ul contenteditable="true">
+                        <li>Finals: 92%</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="languages" class="editable-section">
+                <h2 contenteditable="true">Languages Known</h2>
+                <ul contenteditable="true">
+                    <li>English - Full Professional Fluency</li>
+                    <li>Hindi - Native Fluency</li>
+                    <li>Sourashtra - Native Fluency</li>
+                    <li>Tamil - Native Fluency</li>
+                </ul>
+            </section>
+
+            <section id="achievements" class="editable-section">
+                <h2 contenteditable="true">Achievements and Accolades</h2>
+                <ul contenteditable="true">
+                    <li>Star of the Quarter, TRDDC (TCS), Q4, 2015</li>
+                    <li>Star Performer of the Year, TRDDC (TCS), 2014-2015</li>
+                    <li>Rashtrapathi Scout, New Delhi, 2009</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer class="editable-section">
+            <p contenteditable="true" id="footer-contact">✉️ mathuranath.b@gmail.com | 📞 +91 87935 81827</p>
+            <p contenteditable="true" id="footer-copyright">&copy; 2025 Mathuranath B</p>
+        </footer>
+    </div>
+
+    // Helper function to set cursor at the end of a contenteditable element
+    <script>
+        function setEndOfContenteditable(contentEditableElement) {
+            const range = document.createRange();
+            range.selectNodeContents(contentEditableElement);
+            range.collapse(false); // Collapse to the end
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            contentEditableElement.focus();
+        }
+
+        function getElementPath(el) {
+            if (!el || el.nodeType !== 1) return '';
+            const path = [];
+            while (el && el.parentNode) {
+                let selector = el.nodeName.toLowerCase();
+                if (el.id) {
+                    selector += '#' + el.id;
+                    path.unshift(selector);
+                    break;
+                } else {
+                    let index = 1;
+                    let sibling = el;
+                    while (sibling.previousElementSibling) {
+                        sibling = sibling.previousElementSibling;
+                        if (sibling.nodeName.toLowerCase() === selector) {
+                            index++;
+                        }
+                    }
+                    if (index > 1) {
+                       selector += `:nth-of-type(${index})`;
+                    }
+                }
+                path.unshift(selector);
+                el = el.parentNode;
+            }
+            return path.join(' > ');
+        }
+
+        // Function to save content to localStorage
+        function saveContent() {
+            const content = {};
+            document.querySelectorAll('[contenteditable="true"]').forEach(el => {
+                const key = getElementPath(el);
+                if (key) content[key] = el.innerHTML;
+            });
+            localStorage.setItem('profileContentDraft', JSON.stringify(content));
+            alert('Draft saved to local storage!');
+        }
+
+        // Function to load content from localStorage
+        function loadContent() {
+            const savedContent = localStorage.getItem('profileContentDraft');
+            if (!savedContent) return;
+
+            try {
+                const content = JSON.parse(savedContent);
+                for (const key in content) {
+                    if (Object.prototype.hasOwnProperty.call(content, key)) {
+                        const el = document.querySelector(key);
+                        if (el) {
+                            el.innerHTML = content[key];
+                        } else {
+                            console.warn('Could not find element for key:', key);
+                        }
+                    }
+                }
+            } catch (e) {
+                console.error("Error loading profile draft:", e);
+                localStorage.removeItem('profileContentDraft');
+            }
+        }
+
+        // Function to generate and download the index.html file
+        function publishProfile() {
+            const headerName = document.getElementById('header-name').innerHTML;
+            const headerTitle = document.getElementById('header-title').innerHTML;
+            const introParagraph = document.getElementById('intro-paragraph').innerHTML;
+            const footerContact = document.getElementById('footer-contact').innerHTML;
+            const footerCopyright = document.getElementById('footer-copyright').innerHTML;
+
+            // Get work experience jobs
+            const workExperienceJobs = Array.from(document.querySelectorAll('#work-experience .job')).map(jobDiv => {
+                const jobTitle = jobDiv.querySelector('h3').innerHTML;
+                const jobDuration = jobDiv.querySelector('p').innerHTML;
+                const jobDuties = Array.from(jobDiv.querySelector('ul').querySelectorAll('li')).map(li => `<li>${li.innerHTML}</li>`).join('');
+                return `
+                <div class="job">
+                    <h3>${jobTitle}</h3>
+                    <p>${jobDuration}</p>
+                    <ul>
+                        ${jobDuties}
+                    </ul>
+                </div>`;
+            }).join('');
+
+            // Get skills categories
+            const skillsRows = Array.from(document.querySelectorAll('#skills .skills-row')).map(rowDiv => {
+                const skillCategories = Array.from(rowDiv.querySelectorAll('.skill-category')).map(categoryDiv => {
+                    const categoryTitle = categoryDiv.querySelector('h3').innerHTML;
+                    const categoryItems = Array.from(categoryDiv.querySelector('ul').querySelectorAll('li')).map(li => `<li>${li.innerHTML}</li>`).join('');
+                    return `
+                    <div class="skill-category">
+                        <h3>${categoryTitle}</h3>
+                        <ul>
+                            ${categoryItems}
+                        </ul>
+                    </div>`;
+                }).join('');
+                return `<div class="skills-row">${skillCategories}</div>`;
+            }).join('');
+
+            // Get Education content
+            const educationItems = Array.from(document.querySelectorAll('#education .education-item')).map(eduDiv => {
+                const degree = eduDiv.querySelector('h3').innerHTML;
+                const duration = eduDiv.querySelector('p').innerHTML;
+                const details = Array.from(eduDiv.querySelector('ul').querySelectorAll('li')).map(li => `<li>${li.innerHTML}</li>`).join('');
+                return `
+                <div class="education-item">
+                    <h3>${degree}</h3>
+                    <p>${duration}</p>
+                    <ul>
+                        ${details}
+                    </ul>
+                </div>`;
+            }).join('');
+
+            // Get Languages Known content
+            const languagesKnown = Array.from(document.querySelector('#languages ul').querySelectorAll('li')).map(li => `<li>${li.innerHTML}</li>`).join('');
+
+            // Get Achievements and Accolades content
+            const achievements = Array.from(document.querySelector('#achievements ul').querySelectorAll('li')).map(li => `<li>${li.innerHTML}</li>`).join('');
+
+
+            const generatedHtml = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📄 ${headerName}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>${headerName}</h1>
+            <p>${headerTitle}</p>
+        </header>
+
+        <main>
+            <section id="introduction">
+                <h2>Introduction</h2>
+                <p>${introParagraph}</p>
+            </section>
+
+            <section id="work-experience">
+                <h2>Work Experience</h2>
+                ${workExperienceJobs}
+            </section>
+
+            <section id="skills">
+                <h2>Skills</h2>
+                ${skillsRows}
+            </section>
+
+            <section id="education">
+                <h2>Education</h2>
+                ${educationItems}
+            </section>
+
+            <section id="languages">
+                <h2>Languages Known</h2>
+                <ul>
+                    ${languagesKnown}
+                </ul>
+            </section>
+
+            <section id="achievements">
+                <h2>Achievements and Accolades</h2>
+                <ul>
+                    ${achievements}
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p>${footerContact}</p>
+            <p>${footerCopyright}</p>
+        </footer>
+    </div>
+</body>
+</html>
+            `;
+
+            const blob = new Blob([generatedHtml], { type: 'text/html' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'index.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            alert('Profile page (index.html) generated and downloaded!');
+        }
+
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            loadContent();
+
+            // Add event listeners for dynamic list item behavior
+            document.querySelectorAll('ul[contenteditable="true"]').forEach(ul => {
+                ul.addEventListener('keydown', (event) => {
+                    if (event.key === 'Enter' && event.target.tagName === 'LI') {
+                        event.preventDefault(); // Prevent default Enter behavior (new line inside li)
+                        const currentLi = event.target;
+                        const newLi = document.createElement('li');
+                        newLi.contentEditable = 'true';
+                        newLi.innerHTML = ''; // Start with empty content
+                        currentLi.parentNode.insertBefore(newLi, currentLi.nextSibling);
+                        newLi.focus(); // Move focus to the new list item
+                    } else if (event.key === 'Backspace' && event.target.tagName === 'LI' && event.target.textContent.trim() === '') {
+                        event.preventDefault(); // Prevent default Backspace behavior
+                        const currentLi = event.target;
+                        const previousLi = currentLi.previousElementSibling;
+
+                        if (previousLi && previousLi.tagName === 'LI') {
+                            // Set cursor to the end of the previous line BEFORE removing currentLi
+                            setEndOfContenteditable(previousLi);
+                            currentLi.remove(); // Remove the current empty li after moving focus
+                        } else if (currentLi.parentNode.children.length > 1) {
+                            // If it's the first li but not the only one, just remove it
+                            currentLi.remove();
+                        }
+                    }
+                });
+            });
+        });
+
+        saveDraftBtn.addEventListener('click', saveContent);
+        publishBtn.addEventListener('click', publishProfile);
+    </script>
+</body>
+</html>

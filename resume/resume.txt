@@ -1,0 +1,95 @@
+Introduction
+A devout engineer with substantial experience in building performant software systems using microservices, batch systems, and web-applications with Java, JavaScript/React ecosystem of frameworks.  Talented in designing realtime systems, modelled APIs and Data on relational, NoSQL databases  working in conjunction with distributed cache systems. Quite driven towards execution, fine tuning for performance, availability and building maintainable and reliable software by design.
+
+Work Experience
+
+Freelance Software Consultant - January 2014-Present
+- Designed and architected IoT communication system for an agriculture startup to setup communication with the deployed control systems in the customer farms
+- Designed and architected OTA (Over the Air) Upgrades for the control systems along with switching to RTOS based applications over simple bare-metal programs
+- Designed and developed a web applications to manage school photo gallery, publish time schedule and maintain public website of a renowned high-school
+
+Staff Engineer, PayPal, India - April 2022-Present
+- Researched and built a Vector similarity matching to screen customers against known Fraudulent/Flagged/Terrorist/PEP Entities which was earlier based on text similarity. This was built on technologies that power AI systems.
+- Led a cross-functional team to build a List Search system with new age tech using Next JS, React on frontend with a mixed backend of Lucene indexes, Oracle databases. Coordinated by Microservices and Offline Batch systems
+    Web Interface, Backend Architecture, Team leadership
+- Led a team of five to eliminate full tool licenses of LexisNexis, Dun & Bradstreet, Thomson Reuters products by integrating the APIs to bring a seamless and uniform UI for back-office investigations. Running costs savings by a million USD
+- Liasing with Vendor teams, Team leadership, Architecture, UI
+- Led our team to build a real-time integration with external vendors for compliance verification of PayPal crypto transactions in record time. Enabling PayPal wide launch for Cryptocurrency. Platform has supported transactions more than 2.5 Billion USD (till 2024)
+- Coordinating with cross functional teams, liasing with external vendors
+- Designed and Architected Customer Insights Platform with UI bringing the information from accounts, users, transactions, merchants, financial instruments, cases, multiple legacy platforms, support chats other data from PayPal Inc. to give a 360 of a customer
+- GraphQL, UI Architecture, Widget architecture, Techinical leadership, Node.js, React
+- Helped build, scale the team through hiring, identifying top candidates and grooming for their development
+- Mentored and closely worked with several interns during their internships, groomed them 1-1 and brought the best out of them to help them land full-time at PayPal
+
+Senior Software Engineer, PayPal, India - April 2019 - March 2022
+- Built a real-time distributed data caching for payments compliance to bring down the overall payments and checkout time
+- Designed and developed several microservices (REST, GraphQL) hosting APIs of customers, transactions data sitting on a distributed datalake hosting PayPal, Venmo, Xoom and other subsidiaries of PayPal Inc.
+    REST API, Microservices, Datalake
+
+Software Engineer II, PayPal, India - April 2017 - March 2019
+- Consolidated the case management views of the subsidiaries of PayPal into a single view, bringing down the average case handling time by 3-5 times
+- Migrated legacy applications in C++, Java components to a company standard Java framework, brining instrumentation, logging, TLS 1.2, improving maintainability, upgradability and security
+- Designed and developed APIs on NoSQL databases for compliance platform to liaise with regulators (OFAC, FINTRAC, AUSTRAC) for uploading the disclosures of completed investigations
+
+IT Analyst, Digitate (TCS), Pune, India - October 2016 - March 2017
+- Built ML Models to find out exceptions in invoices and payments in P2P flows for Manufacturing and Automotive companies (Dow chemicals, Exxon Mobil etc.)
+- Designed and developed an analytics framework built upon hybrid databases (BigData & RDBMS) supporting Machine Learning Algorithms written in Java, Scala and Python
+
+Systems Engineer, Digitate (TCS), India - July 2013 - September 2016
+- Fully owned the design and development of a system to interface with all the external ticketing systems; integrated ServiceNow, Remedy, Salesforce, Internal-IT etc. under one roof. Served as the entrance of the automation platform that is “ignio by Digitate”
+- Completely owned the research, analysis, design and development of building a flexible MS Windows remote connector retaining LIVE sessions, which enabled the automation flows to operate on all the Windows Servers running OS version above Windows Server 2000. A game-changer for the Ignio IT Automation Platform which until then had only supported Linux, *Nix connectors using SSH
+- Microsoft Windows connector enabled TCS Digitate Vertical to secure business clients running on windows servers; was also awarded Star of the Year for this feat
+- Developed a niche SMS Notification system using GSM modems and Samsung Phones, learnt and used an arcane “Hayes AT command set” instructions sent via Serial/COM Ports
+
+SKILLS
+- Java, Spring (Batch, API)
+- C/C++, Python
+- JavaScript/TypeScript
+- Node.js, React
+- NextJS, Remix, Express
+- REST, GraphQL, Protobuf
+
+- SQL/NoSQL
+- Postgres, Oracle, SQLite
+- BigQuery, Hadoop, Couchbase
+- Redis, JunoDB, Caching, Real-time systems
+- ActiveMQ, RabbitMQ
+- GCP, AWS - Compute, Data
+- GitHub, Jenkins CI/CD, Docker
+
+- Architecture & Design
+- Prototyping
+- Batch, Event driven, Real-time
+- Data Modelling
+- Performance & Instrumentation
+
+AI/ML Skills
+- Feature Engg, Model Training
+- Vector Embedding, Indexing
+- RAG, Graph integration with LLM
+- LLM integrations with MCP
+
+- Team leadership
+- Mentoring
+- Communication
+- Cross-team collaboration
+- Ambiguity Resolution
+
+
+EDUCATION
+Bachelor of Technology, SASTRA University, Thanjavur - July 2009 - May 2013
+Metchatronics, GPA: 8.58
+
+Higher Secondary, Kendriya Vidyalaya No.1, Madurai, 2007-2009
+Finals: 92%
+
+LANGUAGES KNOWN
+English - Full Professional Fluency
+Hindi - Native Fluency
+Sourashtra - Native Fluency
+Tamil - Native Fluency
+
+ACHIEVEMENTS AND ACCOLADES
+Star of the Quarter, TRDDC (TCS), Q4, 2015
+Star Performer of the Year, TRDDC (TCS), 2014-2015
+Rashtrapathi Scout, New Delhi, 2009

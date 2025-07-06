@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📄 Responsive Test - Mathuranath B</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Test viewport indicators */
+        .viewport-indicator {
+            position: fixed;
+            top: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 5px 10px;
+            font-size: 12px;
+            z-index: 1000;
+            border-radius: 0 0 0 5px;
+        }
+        
+        .test-section {
+            background: #f0f0f0;
+            padding: 10px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin: 10px 0;
+        }
+        
+        .test-item {
+            background: white;
+            padding: 10px;
+            border-radius: 3px;
+            border: 1px solid #ddd;
+        }
+        
+        .horizontal-scroll-test {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            padding: 10px;
+            background: #ffeeee;
+            border-radius: 5px;
+        }
+        
+        .scroll-item {
+            min-width: 150px;
+            height: 50px;
+            background: #ff6b6b;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="viewport-indicator">
+        <span id="viewport-size">Loading...</span>
+    </div>
+    
+    <div class="container">
+        <header>
+            <h1>Responsive Design Test</h1>
+            <p>Testing mobile responsiveness for Mathuranath B's profile</p>
+        </header>
+
+        <main>
+            <div class="test-section">
+                <h2>Viewport Information</h2>
+                <p>Current viewport: <span id="current-viewport">-</span></p>
+                <p>Screen size: <span id="screen-size">-</span></p>
+                <p>Device pixel ratio: <span id="device-ratio">-</span></p>
+            </div>
+            
+            <div class="test-section">
+                <h2>Typography Scale Test</h2>
+                <h1>H1 - Main Title (should scale down on mobile)</h1>
+                <h2>H2 - Section Title (should scale down on mobile)</h2>
+                <h3>H3 - Subsection Title (should scale down on mobile)</h3>
+                <p>Regular paragraph text should remain readable at all sizes.</p>
+            </div>
+
+            <section id="skills-test">
+                <h2>Skills Section Test (Original Layout)</h2>
+                <div class="skills-row">
+                    <div class="skill-category">
+                        <h3>Languages & Frameworks</h3>
+                        <ul>
+                            <li>Java, Spring (Batch, API)</li>
+                            <li>C/C++, Python</li>
+                            <li>JavaScript/TypeScript</li>
+                            <li>Node.js, React</li>
+                            <li>NextJS, Remix, Express</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Platforms & Infrastructure</h3>
+                        <ul>
+                            <li>Postgres, Oracle, SQLite</li>
+                            <li>BigQuery, Hadoop, Couchbase</li>
+                            <li>Redis, JunoDB, Caching</li>
+                            <li>ActiveMQ, RabbitMQ</li>
+                            <li>REST, GraphQL, Protobuf</li>
+                            <li>GCP, AWS - Compute, Data</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Architecture</h3>
+                        <ul>
+                            <li>Architecture & Design</li>
+                            <li>Prototyping</li>
+                            <li>Batch, Event driven</li>
+                            <li>Data Modelling</li>
+                            <li>Performance</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <div class="test-section">
+                <h2>Responsive Grid Test</h2>
+                <p>This grid should adapt to different screen sizes:</p>
+                <div class="test-grid">
+                    <div class="test-item">Item 1</div>
+                    <div class="test-item">Item 2</div>
+                    <div class="test-item">Item 3</div>
+                    <div class="test-item">Item 4</div>
+                    <div class="test-item">Item 5</div>
+                    <div class="test-item">Item 6</div>
+                </div>
+            </div>
+
+            <div class="test-section">
+                <h2>Horizontal Scroll Test</h2>
+                <p>❌ This should NOT happen on mobile (bad example):</p>
+                <div class="horizontal-scroll-test">
+                    <div class="scroll-item">Item 1</div>
+                    <div class="scroll-item">Item 2</div>
+                    <div class="scroll-item">Item 3</div>
+                    <div class="scroll-item">Item 4</div>
+                    <div class="scroll-item">Item 5</div>
+                </div>
+                <p><small>If you can scroll horizontally above, the layout needs fixing.</small></p>
+            </div>
+
+            <div class="test-section">
+                <h2>Touch Target Test</h2>
+                <p>On mobile, these should be easy to tap:</p>
+                <ul>
+                    <li>List item 1 - should have adequate padding</li>
+                    <li>List item 2 - should have adequate padding</li>
+                    <li>List item 3 - should have adequate padding</li>
+                </ul>
+            </div>
+        </main>
+
+        <footer>
+            <p>✉️ mathuranath.b@gmail.com | 📞 +91 87935 81827</p>
+            <p>&copy; 2025 Mathuranath B</p>
+        </footer>
+    </div>
+
+    <script>
+        function updateViewportInfo() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const screenWidth = screen.width;
+            const screenHeight = screen.height;
+            const deviceRatio = window.devicePixelRatio || 1;
+            
+            document.getElementById('viewport-size').textContent = `${width}x${height}`;
+            document.getElementById('current-viewport').textContent = `${width}x${height}`;
+            document.getElementById('screen-size').textContent = `${screenWidth}x${screenHeight}`;
+            document.getElementById('device-ratio').textContent = deviceRatio;
+            
+            // Update breakpoint indicator
+            let breakpoint = 'Desktop';
+            if (width <= 320) {
+                breakpoint = 'Very Small Mobile';
+            } else if (width <= 480) {
+                breakpoint = 'Small Mobile';
+            } else if (width <= 768) {
+                breakpoint = 'Tablet/Mobile';
+            } else if (width <= 1024) {
+                breakpoint = 'Small Desktop';
+            }
+            
+            document.getElementById('viewport-size').textContent = `${width}x${height} (${breakpoint})`;
+        }
+        
+        // Update on load and resize
+        window.addEventListener('load', updateViewportInfo);
+        window.addEventListener('resize', updateViewportInfo);
+        
+        // Test horizontal scroll detection
+        function checkHorizontalScroll() {
+            const body = document.body;
+            const html = document.documentElement;
+            const hasHorizontalScroll = Math.max(body.scrollWidth, body.offsetWidth, html.clientWidth, html.scrollWidth, html.offsetWidth) > window.innerWidth;
+            
+            if (hasHorizontalScroll) {
+                console.warn('⚠️ Horizontal scroll detected! Layout may need fixing.');
+            } else {
+                console.log('✅ No horizontal scroll detected.');
+            }
+        }
+        
+        window.addEventListener('load', checkHorizontalScroll);
+        window.addEventListener('resize', checkHorizontalScroll);
+    </script>
+</body>
+</html>
