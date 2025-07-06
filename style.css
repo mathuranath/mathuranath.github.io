@@ -5,8 +5,8 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
-    background-image: repeating-linear-gradient(0deg, rgba(224, 224, 224, 0.25) 0px, rgba(224, 224, 224, 0.25) 1px, transparent 1px, transparent 20px),
-                      repeating-linear-gradient(90deg, rgba(224, 224, 224, 0.25) 0px, rgba(224, 224, 224, 0.25) 1px, transparent 1px, transparent 20px);
+    background-image: repeating-linear-gradient(0deg, rgba(224, 224, 224, 0.51) 0px, rgba(224, 224, 224, 0.51) 1px, transparent 1px, transparent 20px),
+                      repeating-linear-gradient(90deg, rgba(224, 224, 224, 0.51) 0px, rgba(224, 224, 224, 0.51) 1px, transparent 1px, transparent 20px);
     background-size: 20px 20px;
 }
 
@@ -14,6 +14,19 @@ body {
     max-width: 960px;
     margin: 0 auto;
     padding: 20px;
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
 }
 
 header {
@@ -24,6 +37,18 @@ header {
 h1 {
     font-size: 2.5em;
     margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
 }
 
 header p {
@@ -38,6 +63,18 @@ h2 {
     margin-bottom: 20px;
 }
 
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.3em;
+    }
+}
+
 .job {
     margin-bottom: 20px;
 }
@@ -45,6 +82,18 @@ h2 {
 h3 {
     font-size: 1.5em;
     margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+    h3 {
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 480px) {
+    h3 {
+        font-size: 1.2em;
+    }
 }
 
 .job p {
@@ -60,15 +109,27 @@ h3 {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .skill-category {
     flex: 1;
-    margin-right: 20px;
+    min-width: 200px;
 }
 
-.skill-category:last-child {
-    margin-right: 0;
+/* Mobile responsive skills layout */
+@media (max-width: 768px) {
+    .skills-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .skill-category {
+        flex: none;
+        min-width: unset;
+        margin-right: 0;
+    }
 }
 
 .skill-category h3 {
@@ -87,20 +148,26 @@ li {
     margin-bottom: 5px;
 }
 
-h1:hover, h2:not([contenteditable="true"]):hover, h3:not([contenteditable="true"]):hover {
-    background-color: #174a9c;
-    color: white;
-    box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
-}
-
 h1, h2, h3, h4, p, li {
-    background-color: #fdfdfd;
+    background-color: rgba(253, 253, 253, 0.61);
     padding-left: 5px;
 }
 
-p:hover, li:hover {
+h1:not([contenteditable="true"]):hover, h2:not([contenteditable="true"]):hover,
+h3:not([contenteditable="true"]):hover, h4:not([contenteditable="true"]):hover,
+p:not([contenteditable="true"]):hover, li:not([contenteditable="true"]):hover {
     background-color: #174a9c;
+    background-image: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.06) 0px, rgba(255, 255, 255, 0.06) 1px, transparent 1px, transparent 20px),
+                      repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.06) 0px, rgba(255, 255, 255, 0.06) 1px, transparent 1px, transparent 20px);
     color: white;
+}
+
+h1:not([contenteditable="true"]):hover, h2:not([contenteditable="true"]):hover,
+h3:not([contenteditable="true"]):hover, h4:not([contenteditable="true"]):hover {
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+}
+
+p:not([contenteditable="true"]):hover, li:not([contenteditable="true"]):hover {
     box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
 }
 
@@ -112,4 +179,138 @@ footer {
     text-align: center;
     margin-top: 40px;
     color: #666;
+}
+
+/* Mobile footer adjustments */
+@media (max-width: 480px) {
+    footer {
+        margin-top: 30px;
+    }
+    
+    footer p {
+        font-size: 0.9em;
+        line-height: 1.4;
+    }
+}
+
+/* Improve touch targets on mobile */
+@media (max-width: 768px) {
+    li {
+        margin-bottom: 8px;
+        padding: 5px;
+    }
+    
+    ul {
+        padding-left: 15px;
+    }
+}
+
+/* Ensure text doesn't overflow on very small screens */
+@media (max-width: 320px) {
+    body {
+        font-size: 14px;
+    }
+    
+    h1 {
+        font-size: 1.6em;
+    }
+    
+    h2 {
+        font-size: 1.2em;
+    }
+    
+    h3 {
+        font-size: 1.1em;
+    }
+    
+    .container {
+        padding: 8px;
+    }
+}
+
+/* Editor specific styles */
+.editable-section {
+    border: 1px dashed #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.editable-section:focus-within {
+    border-color: blue;
+}
+
+[contenteditable="true"] {
+    outline: none;
+    border-bottom: 1px dotted #999;
+    padding: 2px;
+    min-height: 1em; /* Ensure editable area is visible even if empty */
+}
+
+[contenteditable="true"]:hover {
+    background-color: #f9f9f9;
+}
+
+.editor-controls {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.editor-controls button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.editor-controls button:hover {
+    background-color: #555;
+}
+
+/* Mobile responsive styles for editor */
+@media (max-width: 768px) {
+    .editor-controls {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .editor-controls button {
+        padding: 12px 18px;
+        margin: 5px;
+        font-size: 14px;
+        min-height: 44px; /* Better touch target */
+        display: block;
+        width: 100%;
+        max-width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .editable-section {
+        padding: 8px;
+        margin-bottom: 15px;
+    }
+    
+    [contenteditable="true"] {
+        padding: 4px;
+        min-height: 1.2em;
+        font-size: 16px; /* Prevent zoom on iOS */
+    }
+}
+
+@media (max-width: 480px) {
+    .editor-controls button {
+        padding: 14px 20px;
+        margin: 8px 0;
+        font-size: 16px;
+        min-height: 48px;
+    }
+    
+    .editable-section {
+        padding: 6px;
+        margin-bottom: 12px;
+    }
 }
