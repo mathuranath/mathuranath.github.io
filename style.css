@@ -124,7 +124,7 @@ h3 {
         flex-direction: column;
         gap: 15px;
     }
-    
+
     .skill-category {
         flex: none;
         min-width: unset;
@@ -134,7 +134,7 @@ h3 {
 
 .skill-category h3 {
     font-size: 1.2em;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #6c6c70;
     padding-bottom: 5px;
     margin-bottom: 10px;
 }
@@ -186,7 +186,7 @@ footer {
     footer {
         margin-top: 30px;
     }
-    
+
     footer p {
         font-size: 0.9em;
         line-height: 1.4;
@@ -199,7 +199,7 @@ footer {
         margin-bottom: 8px;
         padding: 5px;
     }
-    
+
     ul {
         padding-left: 15px;
     }
@@ -210,19 +210,19 @@ footer {
     body {
         font-size: 14px;
     }
-    
+
     h1 {
         font-size: 1.6em;
     }
-    
+
     h2 {
         font-size: 1.2em;
     }
-    
+
     h3 {
         font-size: 1.1em;
     }
-    
+
     .container {
         padding: 8px;
     }
@@ -276,7 +276,7 @@ footer {
         margin-top: 15px;
         margin-bottom: 15px;
     }
-    
+
     .editor-controls button {
         padding: 12px 18px;
         margin: 5px;
@@ -288,12 +288,12 @@ footer {
         margin-left: auto;
         margin-right: auto;
     }
-    
+
     .editable-section {
         padding: 8px;
         margin-bottom: 15px;
     }
-    
+
     [contenteditable="true"] {
         padding: 4px;
         min-height: 1.2em;
@@ -308,7 +308,7 @@ footer {
         font-size: 16px;
         min-height: 48px;
     }
-    
+
     .editable-section {
         padding: 6px;
         margin-bottom: 12px;
