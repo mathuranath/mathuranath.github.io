@@ -19,6 +19,9 @@ body {
   margin: 0;
   color: var(--ink);
   font-family: "IBM Plex Mono", monospace;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: hidden;
   background-color: var(--bg);
   background-image: linear-gradient(rgba(25, 52, 48, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(25, 52, 48, 0.05) 1px, transparent 1px);
@@ -51,14 +54,14 @@ p {
   top: 1.6rem;
   width: 300px;
   max-height: calc(100vh - 3.2rem);
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   align-self: start;
   border: 1px solid var(--line);
   border-radius: 18px;
   background: #ffffff;
   padding: 1.15rem;
   box-shadow: 0 24px 42px rgba(12, 31, 27, 0.08);
-  overflow: hidden;
 }
 
 .rail::after {
@@ -130,6 +133,7 @@ p {
   max-width: none;
   width: 100%;
   margin: 0.2rem 0 0.6rem;
+  overflow-wrap: anywhere;
 }
 
 .hero-home .lede {
@@ -137,6 +141,7 @@ p {
   font-size: 1.02rem;
   color: var(--muted);
   margin: 0.35rem 0 0;
+  overflow-wrap: anywhere;
 }
 
 .hero-home .lede + .lede {
@@ -237,6 +242,8 @@ p {
   font-weight: 700;
   text-decoration: none;
   transition: background-color 120ms ease, border-color 120ms ease, transform 120ms ease;
+  min-height: 0;
+  display: block;
 }
 
 .menu a:hover {
@@ -332,6 +339,7 @@ p {
 .quick-card h3 {
   margin: 0.1rem 0 0.4rem;
   font-size: 1.3rem;
+  overflow-wrap: anywhere;
 }
 
 .skill-group h3 {
@@ -354,6 +362,8 @@ p {
   font-weight: 700;
   text-decoration: none;
   text-underline-offset: 3px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .inline-link:hover {
@@ -620,6 +630,11 @@ p {
 }
 
 @media (max-width: 920px) {
+  .shell {
+    width: min(800px, 95vw);
+    margin: 0.9rem auto;
+  }
+
   .rail {
     position: static;
     left: auto;
@@ -627,23 +642,36 @@ p {
     width: auto;
     max-height: none;
     overflow: visible;
+    max-height: none;
+    margin-bottom: 0.9rem;
+    padding: 1rem;
   }
 
   .content,
   .home-shell .content {
     margin-left: 0;
+    gap: 0.75rem;
   }
 
   .btn.primary {
-    width: auto;
+    width: 100%;
+    margin-top: 0.7rem;
   }
 
   .hero-home {
     min-height: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 
   .display {
     max-width: 100%;
+    font-size: clamp(1.7rem, 7vw, 2.35rem);
+    line-height: 1.12;
+  }
+
+  .quick-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -656,12 +684,47 @@ p {
 
   .rail,
   .panel {
-    padding: 0.94rem;
-    border-radius: 14px;
+    padding: 0.9rem;
+  }
+
+  .contact {
+    font-size: 0.88rem;
+    row-gap: 0.25rem;
+  }
+
+  .social-icons a {
+    width: 40px;
+    height: 40px;
   }
 
   .actions .btn {
     width: 100%;
+  }
+
+  .quick-card .inline-link {
+    top: 0;
+    margin-top: 0.6rem;
+  }
+}
+
+/* Touch devices: remove hover-triggered visual jumps while scrolling */
+@media (hover: none) and (pointer: coarse) {
+  .menu a:hover,
+  .inline-link:hover,
+  .contact a:hover,
+  .social a:hover,
+  .rail :is(#navName, #navRole, .contact a, .contact span):hover,
+  .content :is(h2, h3):hover,
+  .quick-card:hover,
+  .card:hover,
+  .timeline-item:hover,
+  .btn.ghost:hover,
+  .btn.primary:hover {
+    background: inherit;
+    color: inherit;
+    box-shadow: none;
+    border-color: inherit;
+    text-decoration: none;
   }
 }
 
