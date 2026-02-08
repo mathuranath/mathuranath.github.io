@@ -36,6 +36,14 @@
     byId("location").value = profile.location || "";
     byId("email").value = profile.email || "";
     byId("phone").value = profile.phone || "";
+    var linkedin = (profile.socials || []).find(function (s) {
+      return (s.label || "").toLowerCase() === "linkedin";
+    });
+    var github = (profile.socials || []).find(function (s) {
+      return (s.label || "").toLowerCase() === "github";
+    });
+    byId("linkedin").value = linkedin ? linkedin.url : "";
+    byId("github").value = github ? github.url : "";
     byId("tagline").value = profile.tagline || "";
     byId("aboutShort").value = profile.aboutShort || "";
     byId("aboutLong").value = profile.aboutLong || "";
@@ -59,12 +67,19 @@
   }
 
   function collect() {
+    var linkedin = byId("linkedin").value.trim();
+    var github = byId("github").value.trim();
+    var socials = [];
+    if (linkedin) socials.push({ label: "LinkedIn", url: linkedin });
+    if (github) socials.push({ label: "GitHub", url: github });
+
     return {
       name: byId("name").value.trim(),
       role: byId("role").value.trim(),
       location: byId("location").value.trim(),
       email: byId("email").value.trim(),
       phone: byId("phone").value.trim(),
+      socials: socials,
       tagline: byId("tagline").value.trim(),
       aboutShort: byId("aboutShort").value.trim(),
       aboutLong: byId("aboutLong").value.trim(),
@@ -85,12 +100,49 @@
     }
   }
 
-  function publish() {
+  function toProfileDataFile(profile) {
+    return "window.DEFAULT_PROFILE = " + JSON.stringify(profile, null, 2) + ";\n";
+  }
+
+  async function writeProfileFile(profile) {
+    var content = toProfileDataFile(profile);
+    if (window.showSaveFilePicker) {
+      var handle = await window.showSaveFilePicker({
+        suggestedName: "profile-data.js",
+        types: [
+          {
+            description: "JavaScript",
+            accept: { "text/javascript": [".js"] }
+          }
+        ]
+      });
+      var writable = await handle.createWritable();
+      await writable.write(content);
+      await writable.close();
+      return true;
+    }
+
+    var blob = new Blob([content], { type: "text/javascript" });
+    var link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "profile-data.js";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    return false;
+  }
+
+  async function publish() {
     try {
       var profile = collect();
       localStorage.setItem(PUBLISHED_KEY, JSON.stringify(profile));
       localStorage.removeItem(DRAFT_KEY);
-      setStatus("Published successfully. Open Home/Experience/Projects/Resume pages to verify.");
+      var wroteFile = await writeProfileFile(profile);
+      if (wroteFile) {
+        setStatus("Published to local preview and wrote profile-data.js. Commit/push this file to make it live publicly.");
+      } else {
+        setStatus("Published to local preview and downloaded profile-data.js. Replace the file in this repo to make it permanent.");
+      }
     } catch (err) {
       setStatus(err.message, true);
     }

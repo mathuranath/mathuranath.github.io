@@ -13,7 +13,7 @@
   <div class="editor-shell">
     <header class="panel editor-head">
       <h1>Portfolio Editor</h1>
-      <p>Update content here, then publish to refresh all pages in this site.</p>
+      <p>Update content here. Publish writes a `profile-data.js` file so the site content is permanently replaceable in source control.</p>
       <div class="actions">
         <a href="index.html" class="btn ghost">Back to Home</a>
         <a href="resume.html" class="btn ghost">View Resume Page</a>
@@ -26,6 +26,8 @@
       <label>Location<input id="location" type="text" /></label>
       <label>Email<input id="email" type="email" /></label>
       <label>Phone<input id="phone" type="text" /></label>
+      <label>LinkedIn URL<input id="linkedin" type="url" placeholder="https://www.linkedin.com/in/your-id/" /></label>
+      <label>GitHub URL<input id="github" type="url" placeholder="https://github.com/your-id" /></label>
       <label>Tagline<input id="tagline" type="text" /></label>
       <label>Short About<textarea id="aboutShort" rows="3"></textarea></label>
       <label>Detailed About<textarea id="aboutLong" rows="4"></textarea></label>
@@ -47,7 +49,7 @@
 
       <div class="actions">
         <button id="saveDraft" class="btn ghost" type="button">Save Draft</button>
-        <button id="publish" class="btn primary" type="button">Publish</button>
+        <button id="publish" class="btn primary" type="button">Publish To Files</button>
         <button id="download" class="btn ghost" type="button">Download JSON</button>
       </div>
       <p id="status" class="status"></p>

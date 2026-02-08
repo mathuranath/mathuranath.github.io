@@ -11,8 +11,8 @@ window.DEFAULT_PROFILE = {
     "I am a product-focused engineer with experience across compliance platforms, search systems, microservices, and frontend applications. I like leading teams through ambiguous problem spaces, shaping architecture, and delivering practical outcomes that customers can trust.",
   resumePdf: "resume/Mathuranath-latest.pdf",
   socials: [
-    { label: "GitHub", url: "https://github.com/" },
-    { label: "LinkedIn", url: "https://linkedin.com/" }
+    { label: "GitHub", url: "https://github.com/mathuram" },
+    { label: "LinkedIn", url: "https://www.linkedin.com/in/mathuranath/" }
   ],
   featuredSkills: [
     "Java",
