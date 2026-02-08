@@ -3,58 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
+  <title>Mathuranath B</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body data-page="home">
-  <div class="shell">
+  <div class="shell home-shell">
     <aside class="rail">
-      <p class="eyebrow">Portfolio</p>
+      <p class="eyebrow">Engineering Portfolio</p>
       <h1 id="navName"></h1>
       <p id="navRole" class="muted"></p>
       <div id="navContact" class="contact"></div>
-      <div id="navSocial" class="social"></div>
       <nav class="menu">
         <a class="active" href="index.html">Home</a>
         <a href="experience.html">Experience</a>
         <a href="projects.html">Projects</a>
-        <a href="resume.html">Resume</a>
+        <a href="education.html">Alma Mater</a>
       </nav>
-      <a data-resume-link class="btn primary" href="resume/Mathuranath-latest.pdf" download>Download Resume PDF</a>
+      <a data-resume-link class="btn primary" href="resume/Mathuranath-latest.pdf" target="_blank" rel="noopener noreferrer">Download Resume PDF</a>
+      <div id="navSocial" class="social social-icons"></div>
     </aside>
 
     <main class="content">
-      <section class="panel hero">
-        <h2 id="heroTitle"></h2>
+      <section class="panel hero hero-home reveal">
+        <p class="eyebrow">Systems, Scale, and Craft</p>
+        <h2 id="heroTitle" class="display"></h2>
         <p id="heroAbout" class="lede"></p>
+        <p id="heroAboutExtra" class="lede"></p>
+        <div class="hero-spark" aria-hidden="true"></div>
         <div class="actions">
           <a href="experience.html" class="btn ghost">Read Experience</a>
           <a href="projects.html" class="btn ghost">View Projects</a>
         </div>
       </section>
 
-      <section class="panel">
+      <section class="panel reveal">
         <div class="section-head">
-          <h2>Selected Experience</h2>
-          <a href="experience.html" class="inline-link">See full timeline</a>
+          <h2>Highlights</h2>
         </div>
-        <div id="featuredExperience" class="grid two"></div>
+        <div class="quick-grid">
+          <article class="quick-card">
+            <p class="eyebrow">Experience</p>
+            <h3>14+ years of experience across multiple roles</h3>
+            <p class="muted">Leadership, architecture, and execution across large-scale systems.</p>
+            <a href="experience.html" class="inline-link">Experience -></a>
+          </article>
+          <article class="quick-card">
+            <p class="eyebrow">Projects</p>
+            <h3><span id="professionalProjectCount">0</span>+ projects</h3>
+            <p class="muted">Across professional work, consulting, and independent work.</p>
+            <a href="projects.html" class="inline-link">Projects -></a>
+          </article>
+        </div>
       </section>
 
-      <section class="panel">
-        <div class="section-head">
-          <h2>Selected Projects</h2>
-          <a href="projects.html" class="inline-link">See all projects</a>
-        </div>
-        <div id="featuredProjects" class="grid two"></div>
-      </section>
-
-      <section class="panel">
-        <h2>Skills Highlights</h2>
-        <ul id="highlightSkills" class="chips"></ul>
+      <section class="panel reveal">
+        <h2>Skills</h2>
+        <div id="skillGroups" class="quick-grid"></div>
       </section>
     </main>
   </div>
