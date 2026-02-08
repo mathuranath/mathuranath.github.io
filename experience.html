@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
+  <title>Experience</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body data-page="home">
+<body data-page="experience">
   <div class="shell">
     <aside class="rail">
-      <p class="eyebrow">Portfolio</p>
+      <p class="eyebrow">Experience</p>
       <h1 id="navName"></h1>
       <p id="navRole" class="muted"></p>
       <div id="navContact" class="contact"></div>
       <div id="navSocial" class="social"></div>
       <nav class="menu">
-        <a class="active" href="index.html">Home</a>
-        <a href="experience.html">Experience</a>
+        <a href="index.html">Home</a>
+        <a class="active" href="experience.html">Experience</a>
         <a href="projects.html">Projects</a>
         <a href="resume.html">Resume</a>
         <a href="edit.html">Edit</a>
@@ -28,34 +28,10 @@
     </aside>
 
     <main class="content">
-      <section class="panel hero">
-        <h2 id="heroTitle"></h2>
-        <p id="heroAbout" class="lede"></p>
-        <div class="actions">
-          <a href="experience.html" class="btn ghost">Read Experience</a>
-          <a href="projects.html" class="btn ghost">View Projects</a>
-        </div>
-      </section>
-
       <section class="panel">
-        <div class="section-head">
-          <h2>Selected Experience</h2>
-          <a href="experience.html" class="inline-link">See full timeline</a>
-        </div>
-        <div id="featuredExperience" class="grid two"></div>
-      </section>
-
-      <section class="panel">
-        <div class="section-head">
-          <h2>Selected Projects</h2>
-          <a href="projects.html" class="inline-link">See all projects</a>
-        </div>
-        <div id="featuredProjects" class="grid two"></div>
-      </section>
-
-      <section class="panel">
-        <h2>Skills Highlights</h2>
-        <ul id="highlightSkills" class="chips"></ul>
+        <h2>Work Experience</h2>
+        <p class="lede">This page carries detailed professional context beyond the highlights on the homepage.</p>
+        <div id="experienceList" class="timeline"></div>
       </section>
     </main>
   </div>

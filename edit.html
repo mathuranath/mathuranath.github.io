@@ -6,77 +6,51 @@
   <title>Edit Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="bg-glow"></div>
-  <div class="page editor-page">
-    <header class="hero compact">
-      <p class="kicker">Admin</p>
-      <h1>Edit Portfolio Content</h1>
-      <p class="meta">Use this page to update and publish the portfolio shown on the homepage.</p>
-      <div class="cta-row">
-        <a class="btn ghost" href="index.html">Back to Portfolio</a>
+  <div class="editor-shell">
+    <header class="panel editor-head">
+      <h1>Portfolio Editor</h1>
+      <p>Update content here, then publish to refresh all pages in this site.</p>
+      <div class="actions">
+        <a href="index.html" class="btn ghost">Back to Home</a>
+        <a href="resume.html" class="btn ghost">View Resume Page</a>
       </div>
     </header>
 
-    <main>
-      <form id="editorForm" class="panel editor-form">
-        <h2>Profile Basics</h2>
+    <main class="panel editor-main">
+      <label>Name<input id="name" type="text" /></label>
+      <label>Role<input id="role" type="text" /></label>
+      <label>Location<input id="location" type="text" /></label>
+      <label>Email<input id="email" type="email" /></label>
+      <label>Phone<input id="phone" type="text" /></label>
+      <label>Tagline<input id="tagline" type="text" /></label>
+      <label>Short About<textarea id="aboutShort" rows="3"></textarea></label>
+      <label>Detailed About<textarea id="aboutLong" rows="4"></textarea></label>
+      <label>Resume PDF path<input id="resumePdf" type="text" /></label>
 
-        <label>Name
-          <input id="name" type="text" required>
-        </label>
+      <h2>Featured Skills (one per line)</h2>
+      <textarea id="featuredSkills" rows="8"></textarea>
 
-        <label>Role
-          <input id="role" type="text" required>
-        </label>
+      <h2>Interests (one per line)</h2>
+      <textarea id="interests" rows="6"></textarea>
 
-        <label>Location
-          <input id="location" type="text">
-        </label>
+      <h2>Projects JSON Array</h2>
+      <p class="muted tiny">Fields used: name, summary, details, stack(array), link, status, type, featured.</p>
+      <textarea id="projects" rows="14" class="mono"></textarea>
 
-        <label>Email
-          <input id="email" type="email">
-        </label>
+      <h2>Experience JSON Array</h2>
+      <p class="muted tiny">Fields used: company, title, start, end, location, highlights(array), stack(array), featured.</p>
+      <textarea id="experience" rows="14" class="mono"></textarea>
 
-        <label>Phone
-          <input id="phone" type="text">
-        </label>
-
-        <label>Tagline
-          <input id="tagline" type="text">
-        </label>
-
-        <label>About
-          <textarea id="about" rows="4"></textarea>
-        </label>
-
-        <label>Resume PDF path
-          <input id="resumePdf" type="text" placeholder="resume/Mathuranath-latest.pdf">
-        </label>
-
-        <h2>Projects</h2>
-        <p class="helper">One project per block. Format: `Name | Stack1, Stack2 | OptionalLink` then next line is summary.</p>
-        <textarea id="projects" rows="10"></textarea>
-
-        <h2>Skills</h2>
-        <p class="helper">One skill per line.</p>
-        <textarea id="skills" rows="7"></textarea>
-
-        <h2>Interests</h2>
-        <p class="helper">One interest per line.</p>
-        <textarea id="interests" rows="6"></textarea>
-
-        <div class="action-row">
-          <button type="button" id="saveDraft" class="btn ghost">Save Draft</button>
-          <button type="button" id="publish" class="btn primary">Publish Portfolio</button>
-          <button type="button" id="downloadJson" class="btn ghost">Download JSON</button>
-        </div>
-
-        <p id="status" class="status"></p>
-      </form>
+      <div class="actions">
+        <button id="saveDraft" class="btn ghost" type="button">Save Draft</button>
+        <button id="publish" class="btn primary" type="button">Publish</button>
+        <button id="download" class="btn ghost" type="button">Download JSON</button>
+      </div>
+      <p id="status" class="status"></p>
     </main>
   </div>
 

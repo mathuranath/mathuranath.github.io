@@ -1,144 +1,120 @@
 (function () {
-  var DRAFT_KEY = "portfolio_draft_v1";
-  var PUBLISHED_KEY = "portfolio_published_v1";
+  var DRAFT_KEY = "portfolio_draft_v2";
+  var PUBLISHED_KEY = "portfolio_published_v2";
 
-  function getField(id) {
+  function byId(id) {
     return document.getElementById(id);
   }
 
-  function linesToArray(value) {
-    return String(value || "")
-      .split("\n")
-      .map(function (line) {
-        return line.trim();
-      })
-      .filter(Boolean);
-  }
-
-  function projectBlocksToText(projects) {
-    return (projects || [])
-      .map(function (project) {
-        var header = [
-          project.name || "",
-          (project.stack || []).join(", "),
-          project.link || ""
-        ]
-          .map(function (part) {
-            return part.trim();
-          })
-          .join(" | ");
-        return header + "\n" + (project.summary || "") + "\n";
-      })
-      .join("\n")
-      .trim();
-  }
-
-  function textToProjectBlocks(text) {
-    var clean = String(text || "").trim();
-    if (!clean) return [];
-
-    return clean
-      .split(/\n\s*\n/g)
-      .map(function (block) {
-        var rows = block
-          .split("\n")
-          .map(function (line) {
-            return line.trim();
-          })
-          .filter(Boolean);
-        if (!rows.length) return null;
-
-        var headerParts = rows[0].split("|").map(function (part) {
-          return part.trim();
-        });
-
-        return {
-          name: headerParts[0] || "Untitled Project",
-          stack: (headerParts[1] || "")
-            .split(",")
-            .map(function (item) {
-              return item.trim();
-            })
-            .filter(Boolean),
-          link: headerParts[2] || "",
-          summary: rows.slice(1).join(" ")
-        };
-      })
-      .filter(Boolean);
-  }
-
-  function readStorage(key) {
+  function read(key) {
     try {
-      var value = localStorage.getItem(key);
-      return value ? JSON.parse(value) : null;
+      var raw = localStorage.getItem(key);
+      return raw ? JSON.parse(raw) : null;
     } catch (_err) {
       return null;
     }
   }
 
-  function fillForm(profile) {
-    getField("name").value = profile.name || "";
-    getField("role").value = profile.role || "";
-    getField("location").value = profile.location || "";
-    getField("email").value = profile.email || "";
-    getField("phone").value = profile.phone || "";
-    getField("tagline").value = profile.tagline || "";
-    getField("about").value = profile.about || "";
-    getField("resumePdf").value = profile.resumePdf || "resume/Mathuranath-latest.pdf";
-    getField("projects").value = projectBlocksToText(profile.projects || []);
-    getField("skills").value = (profile.skills || []).join("\n");
-    getField("interests").value = (profile.interests || []).join("\n");
+  function lines(value) {
+    return String(value || "")
+      .split("\n")
+      .map(function (item) {
+        return item.trim();
+      })
+      .filter(Boolean);
   }
 
-  function collectForm() {
+  function setStatus(message, isError) {
+    var el = byId("status");
+    el.textContent = message;
+    el.style.color = isError ? "#b3261e" : "#1d5f4f";
+  }
+
+  function fill(profile) {
+    byId("name").value = profile.name || "";
+    byId("role").value = profile.role || "";
+    byId("location").value = profile.location || "";
+    byId("email").value = profile.email || "";
+    byId("phone").value = profile.phone || "";
+    byId("tagline").value = profile.tagline || "";
+    byId("aboutShort").value = profile.aboutShort || "";
+    byId("aboutLong").value = profile.aboutLong || "";
+    byId("resumePdf").value = profile.resumePdf || "resume/Mathuranath-latest.pdf";
+    byId("featuredSkills").value = (profile.featuredSkills || []).join("\n");
+    byId("interests").value = (profile.interests || []).join("\n");
+    byId("projects").value = JSON.stringify(profile.projects || [], null, 2);
+    byId("experience").value = JSON.stringify(profile.experience || [], null, 2);
+  }
+
+  function parseJsonArray(text, fieldName) {
+    try {
+      var parsed = JSON.parse(text || "[]");
+      if (!Array.isArray(parsed)) {
+        throw new Error(fieldName + " must be a JSON array.");
+      }
+      return parsed;
+    } catch (err) {
+      throw new Error("Invalid " + fieldName + " JSON: " + err.message);
+    }
+  }
+
+  function collect() {
     return {
-      name: getField("name").value.trim(),
-      role: getField("role").value.trim(),
-      location: getField("location").value.trim(),
-      email: getField("email").value.trim(),
-      phone: getField("phone").value.trim(),
-      tagline: getField("tagline").value.trim(),
-      about: getField("about").value.trim(),
-      resumePdf: getField("resumePdf").value.trim() || "resume/Mathuranath-latest.pdf",
-      projects: textToProjectBlocks(getField("projects").value),
-      skills: linesToArray(getField("skills").value),
-      interests: linesToArray(getField("interests").value)
+      name: byId("name").value.trim(),
+      role: byId("role").value.trim(),
+      location: byId("location").value.trim(),
+      email: byId("email").value.trim(),
+      phone: byId("phone").value.trim(),
+      tagline: byId("tagline").value.trim(),
+      aboutShort: byId("aboutShort").value.trim(),
+      aboutLong: byId("aboutLong").value.trim(),
+      resumePdf: byId("resumePdf").value.trim(),
+      featuredSkills: lines(byId("featuredSkills").value),
+      interests: lines(byId("interests").value),
+      projects: parseJsonArray(byId("projects").value, "projects"),
+      experience: parseJsonArray(byId("experience").value, "experience")
     };
   }
 
-  function setStatus(message) {
-    getField("status").textContent = message;
-  }
-
   function saveDraft() {
-    var profile = collectForm();
-    localStorage.setItem(DRAFT_KEY, JSON.stringify(profile));
-    setStatus("Draft saved locally.");
+    try {
+      localStorage.setItem(DRAFT_KEY, JSON.stringify(collect()));
+      setStatus("Draft saved locally.");
+    } catch (err) {
+      setStatus(err.message, true);
+    }
   }
 
   function publish() {
-    var profile = collectForm();
-    localStorage.setItem(PUBLISHED_KEY, JSON.stringify(profile));
-    localStorage.removeItem(DRAFT_KEY);
-    setStatus("Published. Open the portfolio page to verify.");
+    try {
+      var profile = collect();
+      localStorage.setItem(PUBLISHED_KEY, JSON.stringify(profile));
+      localStorage.removeItem(DRAFT_KEY);
+      setStatus("Published successfully. Open Home/Experience/Projects/Resume pages to verify.");
+    } catch (err) {
+      setStatus(err.message, true);
+    }
   }
 
-  function downloadJson() {
-    var profile = collectForm();
-    var blob = new Blob([JSON.stringify(profile, null, 2)], { type: "application/json" });
-    var a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = "portfolio-data.json";
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    setStatus("Downloaded portfolio-data.json.");
+  function download() {
+    try {
+      var profile = collect();
+      var blob = new Blob([JSON.stringify(profile, null, 2)], { type: "application/json" });
+      var link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "portfolio-data.json";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      setStatus("Downloaded portfolio-data.json.");
+    } catch (err) {
+      setStatus(err.message, true);
+    }
   }
 
-  var startingData = readStorage(DRAFT_KEY) || readStorage(PUBLISHED_KEY) || window.DEFAULT_PROFILE || {};
-  fillForm(startingData);
+  fill(read(DRAFT_KEY) || read(PUBLISHED_KEY) || window.DEFAULT_PROFILE || {});
 
-  getField("saveDraft").addEventListener("click", saveDraft);
-  getField("publish").addEventListener("click", publish);
-  getField("downloadJson").addEventListener("click", downloadJson);
+  byId("saveDraft").addEventListener("click", saveDraft);
+  byId("publish").addEventListener("click", publish);
+  byId("download").addEventListener("click", download);
 })();
