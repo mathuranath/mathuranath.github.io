@@ -1,192 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📄 Mathuranath B</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Mathuranath B</h1>
-            <p>Software Engineer</p>
-            <p>✉️ mathu92@gmail.com | 📞 +91 87935 81827</p>
-        </header>
+  <div class="bg-glow"></div>
+  <div class="page">
+    <header class="hero">
+      <p class="kicker">Personal Portfolio</p>
+      <h1 id="name"></h1>
+      <p id="role" class="meta"></p>
+      <p id="tagline" class="tagline"></p>
+      <div id="contact" class="contact"></div>
+      <div class="cta-row">
+        <a id="resumeLink" class="btn primary" href="resume/Mathuranath-latest.pdf" download>Download Resume (PDF)</a>
+        <a class="btn ghost" href="edit.html">Edit & Publish</a>
+      </div>
+    </header>
 
-        <main>
-            <section id="introduction">
-                <h2>Introduction</h2>
-                <p>A devout engineer with substantial experience in building performant software systems using microservices, batch systems, and web-applications with Java, JavaScript/React ecosystem of frameworks.  Talented in designing realtime systems, modelled APIs and Data on relational, NoSQL databases  working in conjunction with distributed cache systems. Quite driven towards execution, fine tuning for performance, availability and building maintainable and reliable software by design.</p>
-            </section>
+    <main>
+      <section class="panel">
+        <h2>About</h2>
+        <p id="about"></p>
+      </section>
 
-            <section id="work-experience">
-                <h2>Work Experience</h2>
-                <div class="job">
-                    <h3>Member of Technical Staff, PayPal, India</h3>
-                    <p>April 2022-Present</p>
-                    <ul>
-                        <li>Led a cross-functional team to build a List Search system with new age tech using Next JS, React on frontend with a mixed backend of Lucene indexes, Oracle databases. Coordinated by Microservices and Offline Batch systems</li>
-                        <li>Led a team of five to eliminate full tool licenses of LexisNexis, Dun & Bradstreet, Thomson Reuters products by integrating the APIs to bring a seamless and uniform UI for back-office investigations. Running costs savings by a million USD per year</li>
-                        <p class="job-resp">Liasing with Vendor teams, Team leadership, Architecture, UI</p>
-                        <li>Led our team to build a real-time integration with external vendors for compliance verification of PayPal crypto transactions in record time. Making PayPal for Cryptocurrency a trusted platform. Platform has supported transactions more than 3 Billion USD (till 2025)</li>
-                        <p class="job-resp">Coordinating with cross functional teams, liaising with external vendors</p>
-                        <li>Designed and Architected Customer Insights Platform with UI bringing the information from accounts, users, transactions, merchants, financial instruments, cases, multiple legacy platforms, support chats other data from PayPal Inc. to give a 360 of a customer</li>
-                        <p class="job-resp">GraphQL, UI Architecture, Widget Architecture, Technical leadership, Node.js, React</p>
-                        <li>Helped build, scale the team through hiring, identifying top candidates and grooming for their development</li>
-                        <li>Mentored and closely worked with several interns during their internships, groomed them 1-1 and brought the best out of them to help them land full-time at PayPal</li>
-                    </ul>
-                </div>
-                <div class="job">
-                    <h3>Senior Software Engineer, PayPal, India</h3>
-                    <p>April 2019 - March 2022</p>
-                    <ul>
-                        <li>Built a real-time distributed data caching for payments compliance to bring down the overall payments and checkout time</li>
-                        <li>Designed and developed several microservices (REST, GraphQL) hosting APIs of customers, transactions data sitting on a distributed datalake hosting PayPal, Venmo, Xoom and other subsidiaries of PayPal Inc.</li>
-                    </ul>
-                </div>
-                <div class="job">
-                    <h3>Software Engineer II, PayPal, India</h3>
-                    <p>April 2017 - March 2019</p>
-                    <ul>
-                        <li>Consolidated the case management views of the subsidiaries of PayPal into a single view, bringing down the average case handling time by 3-5 times</li>
-                        <li>Migrated legacy applications in C++, Java components to a company standard Java framework, brining instrumentation, logging, TLS 1.2, improving maintainability, upgradability and security</li>
-                        <li>Designed and developed APIs on NoSQL databases for compliance platform to liaise with regulators (OFAC, FINTRAC, AUSTRAC) for uploading the disclosures of completed investigations</li>
-                    </ul>
-                </div>
-                <div class="job">
-                    <h3>IT Analyst, Digitate (TCS), Pune, India</h3>
-                    <p>October 2016 - March 2017</p>
-                    <ul>
-                        <li>Built ML Models to find out exceptions in invoices and payments in P2P flows for Manufacturing and Automotive companies (Dow chemicals, Exxon Mobil etc.)</li>
-                        <li>Designed and developed an analytics framework built upon hybrid databases (BigData & RDBMS) supporting Machine Learning Algorithms written in Java, Scala and Python</li>
-                    </ul>
-                </div>
-                <div class="job">
-                    <h3>Systems Engineer, Digitate (TCS), India</h3>
-                    <p>July 2013 - September 2016</p>
-                    <ul>
-                        <li>Fully owned the design and development of a system to interface with all the external ticketing systems; integrated ServiceNow, Remedy, Salesforce, Internal-IT etc. under one roof. Served as the entrance of the automation platform that is “ignio by Digitate”</li>
-                        <li>Completely owned the research, analysis, design and development of building a flexible MS Windows remote connector retaining LIVE sessions, which enabled the automation flows to operate on all the Windows Servers running OS version above Windows Server 2000. A game-changer for the Ignio IT Automation Platform which until then had only supported Linux, *Nix connectors using SSH</li>
-                        <p class="job-resp">Microsoft Windows connector enabled TCS Digitate Vertical to secure business clients running on windows servers; was also awarded Star of the Year for this feat</p>
-                        <li>Developed a niche SMS Notification system using GSM modems and Samsung Phones, learnt and used an arcane “Hayes AT command set” instructions sent via Serial/COM Ports</li>
-                    </ul>
-                </div>
-                <div class="job">
-                    <h3>Freelance Software Consultant</h3>
-                    <p>January 2014-Present</p>
-                    <ul>
-                        <li>Designed and architected IoT communication system for an agriculture startup to setup communication with the deployed control systems in the customer farms</li>
-                        <li>Designed and architected OTA (Over the Air) Upgrades for the control systems along with switching to RTOS based applications over simple bare-metal programs</li>
-                        <li>Designed and developed a web applications to manage school photo gallery, publish time schedule and maintain public website of a renowned high-school</li>
-                    </ul>
-                </div>
-            </section>
+      <section class="panel">
+        <h2>Projects</h2>
+        <div id="projects" class="grid"></div>
+      </section>
 
-            <section id="skills">
-                <h2>Skills</h2>
-                <div class="skills-row">
-                    <div class="skill-category">
-                        <h3>Languages & Frameworks</h3>
-                        <ul>
-                            <li>Java, Spring (Batch, API)</li>
-                            <li>C/C++, Python</li>
-                            <li>JavaScript/TypeScript</li>
-                            <li>Node.js, React</li>
-                            <li>NextJS, Remix, Express</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Platforms & Infrastructure</h3>
-                        <ul>
-                            <li>Postgres, Oracle, SQLite</li>
-                            <li>BigQuery, Hadoop, Couchbase</li>
-                            <li>Redis, JunoDB, Caching, Real-time systems</li>
-                            <li>ActiveMQ, RabbitMQ</li>
-                            <li>REST, GraphQL, Protobuf</li>
-                            <li>GCP, AWS - Compute, Data</li>
-                            <li>GitHub, Jenkins CI/CD, Docker</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="skills-row">
-                    <div class="skill-category">
-                        <h3>Architecture</h3>
-                        <ul>
-                            <li>Architecture & Design</li>
-                            <li>Prototyping</li>
-                            <li>Batch, Event driven, Real-time</li>
-                            <li>Data Modelling</li>
-                            <li>Performance & Instrumentation</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h3>AI/ML</h3>
-                        <ul>
-                            <li>Feature Engg, Model Training</li>
-                            <li>Vector Embedding, Indexing</li>
-                            <li>RAG, Graph integration with LLM</li>
-                            <li>LLM integrations with MCP</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Leadership</h3>
-                        <ul>
-                            <li>Team leadership</li>
-                            <li>Mentoring</li>
-                            <li>Communication</li>
-                            <li>Cross-team collaboration</li>
-                            <li>Ambiguity Resolution</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+      <section class="panel">
+        <h2>Skills</h2>
+        <ul id="skills" class="chips"></ul>
+      </section>
 
-            <section id="education">
-                <h2>Education</h2>
-                <div class="education-item">
-                    <h3>Bachelor of Technology, SASTRA University, Thanjavur</h3>
-                    <p>July 2009 - May 2013</p>
-                    <ul>
-                        <li>Metchatronics, GPA: 8.58</li>
-                    </ul>
-                </div>
-                <div class="education-item">
-                    <h3>Higher Secondary, Kendriya Vidyalaya No.1, Madurai</h3>
-                    <p>2007-2009</p>
-                    <ul>
-                        <li>Finals: 92%</li>
-                    </ul>
-                </div>
-            </section>
+      <section class="panel">
+        <h2>Interests</h2>
+        <ul id="interests" class="list"></ul>
+      </section>
+    </main>
 
-            <section id="languages">
-                <h2>Languages Known</h2>
-                <ul>
-                    <li>English &nbsp;&nbsp;&nbsp;- Full Professional Fluency</li>
-                    <li>Hindi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Native Fluency</li>
-                    <li>Sourashtra - Native Fluency</li>
-                    <li>Tamil &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Native Fluency</li>
-                </ul>
-            </section>
+    <footer>
+      <p>Built and maintained by <span id="footerName">Mathuranath B</span></p>
+    </footer>
+  </div>
 
-            <section id="achievements">
-                <h2>Achievements and Accolades</h2>
-                <ul>
-                    <li>Star of the Quarter, TRDDC (TCS), Q4, 2015</li>
-                    <li>Star Performer of the Year, TRDDC (TCS), 2014-2015</li>
-                    <li>Rashtrapathi Scout, New Delhi, 2009</li>
-                </ul>
-            </section>
-        </main>
-
-        <footer>
-            <p>✉️ mathuranath.b@gmail.com | 📞 +91 87935 81827</p>
-            <p>&copy; 2025 Mathuranath B</p>
-        </footer>
-    </div>
+  <script src="profile-data.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
