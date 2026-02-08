@@ -1,5 +1,6 @@
 (function () {
   var STORAGE_KEY = "portfolio_published_v2";
+  var NAV_ANCHOR_SELECTOR = 'a[href$=".html"]';
 
   function escapeHtml(value) {
     return String(value || "")
@@ -252,14 +253,84 @@
       .join("");
   }
 
+  function renderPage(profile) {
+    var page = document.body.getAttribute("data-page") || "home";
+    if (page === "home") renderHome(profile);
+    if (page === "projects") renderProjects(profile);
+    if (page === "experience") renderExperience(profile);
+    if (page === "resume") renderResume(profile);
+    if (page === "education") renderEducation(profile);
+    setupReveal();
+  }
+
+  function shouldHandleNav(link) {
+    if (!link) return false;
+    if (link.target && link.target.toLowerCase() === "_blank") return false;
+    if (link.hasAttribute("download")) return false;
+    if (link.getAttribute("rel") === "external") return false;
+    if (link.getAttribute("href").indexOf("#") === 0) return false;
+    var href = link.getAttribute("href") || "";
+    if (href.indexOf("mailto:") === 0 || href.indexOf("tel:") === 0) return false;
+    var url = new URL(link.href, window.location.origin);
+    if (url.origin !== window.location.origin) return false;
+    return /\.html$/i.test(url.pathname);
+  }
+
+  async function navigate(url, profile, push) {
+    var content = document.querySelector(".content");
+    var rail = document.querySelector(".rail");
+    if (!content || !rail) {
+      window.location.href = url;
+      return;
+    }
+
+    try {
+      content.classList.add("is-transitioning");
+      var res = await fetch(url, { credentials: "same-origin" });
+      if (!res.ok) throw new Error("Navigation fetch failed");
+      var html = await res.text();
+      var doc = new DOMParser().parseFromString(html, "text/html");
+
+      var nextRail = doc.querySelector(".rail");
+      var nextContent = doc.querySelector(".content");
+      if (!nextRail || !nextContent) throw new Error("Invalid target page structure");
+
+      rail.innerHTML = nextRail.innerHTML;
+      content.innerHTML = nextContent.innerHTML;
+      document.body.setAttribute("data-page", doc.body.getAttribute("data-page") || "home");
+      document.title = doc.title || document.title;
+
+      if (push) {
+        history.pushState({}, "", url);
+      }
+
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      renderNav(profile);
+      renderPage(profile);
+    } catch (_err) {
+      window.location.href = url;
+    } finally {
+      content.classList.remove("is-transitioning");
+    }
+  }
+
+  function enableNavigation(profile) {
+    document.addEventListener("click", function (event) {
+      var link = event.target.closest(NAV_ANCHOR_SELECTOR);
+      if (!shouldHandleNav(link)) return;
+      var url = new URL(link.href, window.location.origin);
+      if (url.pathname === window.location.pathname) return;
+      event.preventDefault();
+      navigate(url.pathname, profile, true);
+    });
+
+    window.addEventListener("popstate", function () {
+      navigate(window.location.pathname, profile, false);
+    });
+  }
+
   var profile = readProfile();
   renderNav(profile);
-
-  var page = document.body.getAttribute("data-page") || "home";
-  if (page === "home") renderHome(profile);
-  if (page === "projects") renderProjects(profile);
-  if (page === "experience") renderExperience(profile);
-  if (page === "resume") renderResume(profile);
-  if (page === "education") renderEducation(profile);
-  setupReveal();
+  renderPage(profile);
+  enableNavigation(profile);
 })();

@@ -80,10 +80,15 @@ p {
   display: grid;
   gap: 0.9rem;
   margin-left: 316px;
+  transition: opacity 120ms ease;
 }
 
 .home-shell .content {
   margin-left: 336px;
+}
+
+.content.is-transitioning {
+  opacity: 0.45;
 }
 
 .panel {
