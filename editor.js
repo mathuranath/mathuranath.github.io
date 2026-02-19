@@ -47,7 +47,7 @@
     byId("tagline").value = profile.tagline || "";
     byId("aboutShort").value = profile.aboutShort || "";
     byId("aboutLong").value = profile.aboutLong || "";
-    byId("resumePdf").value = profile.resumePdf || "resume/Mathuranath-latest.pdf";
+    byId("resumePdf").value = profile.resumePdf || "resume/Mathuranath-Resume.pdf";
     byId("featuredSkills").value = (profile.featuredSkills || []).join("\n");
     byId("interests").value = (profile.interests || []).join("\n");
     byId("projects").value = JSON.stringify(profile.projects || [], null, 2);

@@ -11,8 +11,8 @@ window.DEFAULT_PROFILE = {
     "I also bring cross-disciplinary experience, dabbling with microcontrollers, Raspberry Pi systems, and SolidWorks for product design when needed.",
   aboutLong:
     "I am a product-focused engineer with experience across compliance platforms, search systems, microservices, and frontend applications. I like leading teams through ambiguous problem spaces, shaping architecture, and delivering practical outcomes that customers can trust.",
-  resumePdf: "resume/Mathuranath-latest.pdf",
-  professionalProjectCount: 20,
+  resumePdf: "resume/Mathuranath-Resume.pdf",
+  professionalProjectCount: 30,
   socials: [
     { label: "GitHub", url: "https://github.com/onewildgamer/" },
     { label: "LinkedIn", url: "https://www.linkedin.com/in/mathuranath/" }

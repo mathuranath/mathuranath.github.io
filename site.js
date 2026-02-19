@@ -67,7 +67,7 @@
 
     var resumeEls = document.querySelectorAll("[data-resume-link]");
     resumeEls.forEach(function (el) {
-      el.setAttribute("href", profile.resumePdf || "resume/Mathuranath-latest.pdf");
+      el.setAttribute("href", profile.resumePdf || "resume/Mathuranath-Resume.pdf");
     });
   }
 
@@ -85,7 +85,7 @@
     setText("heroAboutExtra", profile.aboutCrossDiscipline || "");
     setText(
       "professionalProjectCount",
-      String(profile.professionalProjectCount || (profile.projects || []).length)
+      String(profile.professionalProjectCount || 30)
     );
 
     var skillGroupsEl = document.getElementById("skillGroups");
