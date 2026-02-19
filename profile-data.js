@@ -197,7 +197,7 @@ window.DEFAULT_PROFILE = {
       highlights: [
         "Led a cross-functional team to build a list search system using Next.js and React with backend systems across Lucene indexes and Oracle databases coordinated by microservices and offline batch systems.",
         "Led a team of five to eliminate full tool licenses from LexisNexis, Dun & Bradstreet, and Thomson Reuters by integrating APIs into a seamless and uniform UI for back-office investigations, driving major cost savings.",
-        "Led real-time integrations with external vendors for compliance verification of PayPal crypto transactions at production scale.",
+        "Led real-time integrations with external vendors for compliance verification of PayPal crypto transactions.",
         "Designed and architected a Customer Insights Platform UI that unified accounts, users, transactions, merchants, financial instruments, cases, support chats, and legacy platform data into a 360-degree customer view.",
         "Contributed to scaling the team through hiring and mentoring, including close 1:1 internship coaching that converted candidates to full-time roles."
       ],
@@ -224,9 +224,9 @@ window.DEFAULT_PROFILE = {
       end: "Mar 2019",
       location: "India",
       highlights: [
+        "Designed and developed APIs on NoSQL databases for compliance platforms used to liaise with regulators including OFAC, FINTRAC, and AUSTRAC for investigation disclosures.",
         "Consolidated case management views across PayPal subsidiaries into a single view, reducing average case handling time by 3 to 5 times.",
-        "Migrated legacy C++ and Java components to a company-standard Java framework with improved instrumentation, logging, TLS 1.2 support, maintainability, and security.",
-        "Designed and developed APIs on NoSQL databases for compliance platforms used to liaise with regulators including OFAC, FINTRAC, and AUSTRAC for investigation disclosures."
+        "Migrated legacy C++ and Java components to a company-standard Java framework with improved instrumentation, logging, TLS 1.2 support, maintainability, and security."
       ],
       stack: ["Java", "NoSQL", "Compliance APIs", "Security"],
       featured: true
@@ -238,7 +238,7 @@ window.DEFAULT_PROFILE = {
       end: "Mar 2017",
       location: "Pune, India",
       highlights: [
-        "Built machine learning models to detect exceptions in invoice and payment P2P flows for manufacturing and automotive clients including Dow Chemicals and Exxon Mobil.",
+        "Built machine learning models to detect exceptions in invoice and payment P2P flows for manufacturing and automotive clients including Dow Chemicals, Nielsen and Exxon Mobil.",
         "Designed and developed an analytics framework on hybrid Big Data and RDBMS systems supporting machine learning algorithms in Java, Scala, and Python."
       ],
       stack: ["Machine Learning", "Java", "Scala", "Python", "Big Data", "RDBMS"],
