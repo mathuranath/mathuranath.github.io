@@ -177,12 +177,12 @@ window.DEFAULT_PROFILE = {
     },
     {
       name: "Personal Expenses App",
-      summary: "Ongoing project to track personal spending, categories, and monthly trends.",
+      summary: "Personal finance tracker for monitoring spending, categories, and monthly trends.",
       details:
-        "Currently building core expense capture, category analytics, and dashboard visualizations for day-to-day financial clarity.",
-      stack: ["In Progress", "Web App", "Analytics"],
+        "Shipped core expense capture, category analytics, and dashboard visualizations for day-to-day financial clarity.",
+      stack: ["Web App", "Analytics", "Dashboard"],
       link: "",
-      status: "In Progress",
+      status: "Complete",
       type: "Personal",
       featured: true
     }

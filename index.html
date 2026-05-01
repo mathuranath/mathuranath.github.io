@@ -6,7 +6,8 @@
   <title>Mathuranath B</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&family=IBM+Plex+Mono:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
@@ -14,61 +15,70 @@
   <link rel="manifest" href="favicon/site.webmanifest">
 </head>
 <body data-page="home">
-  <div class="shell home-shell">
-    <aside class="rail">
-      <p class="eyebrow">Engineering Portfolio</p>
-      <h1 id="navName"></h1>
-      <p id="navRole" class="muted"></p>
-      <div id="navContact" class="contact"></div>
+
+  <header class="topnav">
+    <div class="topnav-inner">
+      <a class="nav-brand" href="index.html">
+        <span id="navName" class="nav-brand-name"></span>
+        <span id="navRole" class="nav-brand-role"></span>
+      </a>
       <nav class="menu">
         <a class="active" href="index.html">Home</a>
         <a href="experience.html">Experience</a>
         <a href="projects.html">Projects</a>
         <a href="education.html">Alma Mater</a>
       </nav>
-      <a data-resume-link class="btn primary" href="resume/Mathuranath-Resume.pdf" target="_blank" rel="noopener noreferrer">Download Resume PDF</a>
-      <div id="navSocial" class="social social-icons"></div>
-    </aside>
+      <div class="nav-end">
+        <div id="navSocial" class="social social-icons"></div>
+        <a data-resume-link class="btn primary" href="resume/Mathuranath-Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+      </div>
+    </div>
+  </header>
 
-    <main class="content">
-      <section class="panel hero hero-home reveal">
-        <p class="eyebrow">Systems, Scale, and Craft</p>
-        <h2 id="heroTitle" class="display"></h2>
-        <p id="heroAbout" class="lede"></p>
-        <p id="heroAboutExtra" class="lede"></p>
-        <div class="hero-spark" aria-hidden="true"></div>
+  <main class="content">
+
+    <section class="hero-section reveal">
+      <div class="hero-inner">
+        <p class="hero-eyebrow">Engineering Portfolio</p>
+        <h1 id="heroTitle" class="display"></h1>
+        <p id="heroAbout" class="hero-lede"></p>
+        <p id="heroAboutExtra" class="hero-lede muted"></p>
+        <div id="navContact" class="hero-contact"></div>
         <div class="actions">
-          <a href="experience.html" class="btn ghost">Read Experience</a>
-          <a href="projects.html" class="btn ghost">View Projects</a>
+          <a href="experience.html" class="btn ghost">Experience</a>
+          <a href="projects.html" class="btn ghost">Projects</a>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="panel reveal">
-        <div class="section-head">
-          <h2>Highlights</h2>
-        </div>
-        <div class="quick-grid">
-          <article class="quick-card">
+    <section class="section reveal">
+      <div class="inner">
+        <p class="section-label">Overview</p>
+        <div class="highlights-grid">
+          <div class="highlight-card">
             <p class="eyebrow">Experience</p>
-            <h3>14+ years of experience across multiple roles</h3>
-            <p class="muted">Leadership, architecture, and execution across large-scale systems.</p>
-            <a href="experience.html" class="inline-link">Experience -></a>
-          </article>
-          <article class="quick-card">
+            <h3>14<span class="num">+</span> years</h3>
+            <p>Leadership, architecture, and execution across large-scale systems.</p>
+            <a href="experience.html" class="inline-link">View Experience &rarr;</a>
+          </div>
+          <div class="highlight-card">
             <p class="eyebrow">Projects</p>
-            <h3><span id="professionalProjectCount">0</span>+ projects</h3>
-            <p class="muted">Across professional work, consulting, and independent work.</p>
-            <a href="projects.html" class="inline-link">Projects -></a>
-          </article>
+            <h3><span id="professionalProjectCount" class="num">0</span>+ projects</h3>
+            <p>Across professional work, consulting, and independent work.</p>
+            <a href="projects.html" class="inline-link">View Projects &rarr;</a>
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="panel reveal">
-        <h2>Skills</h2>
-        <div id="skillGroups" class="quick-grid"></div>
-      </section>
-    </main>
-  </div>
+    <section class="section reveal">
+      <div class="inner">
+        <p class="section-label">Skills</p>
+        <div id="skillGroups" class="skills-grid"></div>
+      </div>
+    </section>
+
+  </main>
 
   <script src="profile-data.js"></script>
   <script src="site.js"></script>

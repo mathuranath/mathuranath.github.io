@@ -36,7 +36,7 @@
     if (normalized === "linkedin") {
       return '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0-.02-5zM3 9h4v12H3zM9 9h3.83v1.64h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.66 4.77 6.12V21h-4v-5.52c0-1.32-.02-3.01-1.84-3.01-1.84 0-2.12 1.44-2.12 2.92V21H9z"/></svg>';
     }
-    return '<span class="social-fallback">' + escapeHtml(label || "") + "</span>";
+    return '<span>' + escapeHtml(label || "") + "</span>";
   }
 
   function renderNav(profile) {
@@ -45,14 +45,14 @@
 
     var contactEl = document.getElementById("navContact");
     if (contactEl) {
-      var contactItems = [];
+      var parts = [];
       if (profile.email) {
-        contactItems.push('<a href="mailto:' + escapeHtml(profile.email) + '">' + escapeHtml(profile.email) + "</a>");
+        parts.push('<a href="mailto:' + escapeHtml(profile.email) + '">' + escapeHtml(profile.email) + "</a>");
       }
       if (profile.phone) {
-        contactItems.push("<span>" + escapeHtml(profile.phone) + "</span>");
+        parts.push("<span>" + escapeHtml(profile.phone) + "</span>");
       }
-      contactEl.innerHTML = contactItems.join(" ");
+      contactEl.innerHTML = parts.join("");
     }
 
     var socialEl = document.getElementById("navSocial");
@@ -60,7 +60,11 @@
       var socials = Array.isArray(profile.socials) ? profile.socials : [];
       socialEl.innerHTML = socials
         .map(function (s) {
-          return '<a href="' + escapeHtml(s.url) + '" target="_blank" rel="noopener noreferrer" aria-label="' + escapeHtml(s.label) + '" title="' + escapeHtml(s.label) + '">' + socialIcon(s.label) + "</a>";
+          return (
+            '<a href="' + escapeHtml(s.url) + '" target="_blank" rel="noopener noreferrer" ' +
+            'aria-label="' + escapeHtml(s.label) + '" title="' + escapeHtml(s.label) + '">' +
+            socialIcon(s.label) + "</a>"
+          );
         })
         .join("");
     }
@@ -83,63 +87,29 @@
     setText("heroTitle", profile.tagline || "");
     setText("heroAbout", profile.aboutShort || "");
     setText("heroAboutExtra", profile.aboutCrossDiscipline || "");
-    setText(
-      "professionalProjectCount",
-      String(profile.professionalProjectCount || 30)
-    );
+    setText("professionalProjectCount", String(profile.professionalProjectCount || 30));
 
     var skillGroupsEl = document.getElementById("skillGroups");
     if (skillGroupsEl) {
       var groups = Array.isArray(profile.skillCategories) ? profile.skillCategories : [];
       if (!groups.length) {
         skillGroupsEl.innerHTML =
-          '<article class="quick-card"><h3>Skills</h3><ul class="chips">' +
+          '<div class="skill-group"><h3>Skills</h3><ul class="chips">' +
           chips(profile.featuredSkills || []) +
-          "</ul></article>";
+          "</ul></div>";
       } else {
         skillGroupsEl.innerHTML = groups
           .map(function (group) {
-            return [
-              '<article class="quick-card skill-group">',
-              "<h3>" + escapeHtml(group.title || "") + "</h3>",
-              '<ul class="chips">' + chips(group.items || []) + "</ul>",
-              "</article>"
-            ].join("");
+            return (
+              '<div class="skill-group">' +
+              "<h3>" + escapeHtml(group.title || "") + "</h3>" +
+              '<ul class="chips">' + chips(group.items || []) + "</ul>" +
+              "</div>"
+            );
           })
           .join("");
       }
     }
-  }
-
-  function setupReveal() {
-    var items = Array.from(document.querySelectorAll(".reveal"));
-    if (!items.length) return;
-    items.forEach(function (el, index) {
-      el.style.transitionDelay = Math.min(index * 24, 72) + "ms";
-    });
-
-    if (!("IntersectionObserver" in window)) {
-      items.forEach(function (el) {
-        el.classList.add("is-visible");
-      });
-      return;
-    }
-
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.14 }
-    );
-
-    items.forEach(function (el) {
-      observer.observe(el);
-    });
   }
 
   function renderProjects(profile) {
@@ -147,21 +117,29 @@
     if (!listEl) return;
 
     listEl.innerHTML = (profile.projects || [])
-      .map(function (project) {
+      .map(function (project, i) {
+        var num = String(i + 1).padStart(2, "0");
+        var statusClass = "status-" + (project.status || "").toLowerCase().replace(/\s+/g, "-");
         var link = project.link
-          ? '<a class="inline-link" href="' + escapeHtml(project.link) + '" target="_blank" rel="noopener noreferrer">View project</a>'
+          ? '<a class="inline-link" href="' + escapeHtml(project.link) + '" target="_blank" rel="noopener noreferrer">View project &rarr;</a>'
           : "";
 
-        return [
-          '<article class="card detail">',
-          "<h3>" + escapeHtml(project.name) + "</h3>",
-          '<div class="meta-row"><span>' + escapeHtml(project.type || "") + "</span><span>" + escapeHtml(project.status || "") + "</span></div>",
-          "<p>" + escapeHtml(project.summary) + "</p>",
-          '<p class="muted">' + escapeHtml(project.details || "") + "</p>",
-          '<ul class="chips">' + chips(project.stack || []) + "</ul>",
-          link,
+        return (
+          '<article class="project-card reveal">' +
+          '<div class="project-num">' + num + "</div>" +
+          '<div class="project-body">' +
+          "<h3>" + escapeHtml(project.name) + "</h3>" +
+          '<div class="meta-row">' +
+          '<span>' + escapeHtml(project.type || "") + "</span>" +
+          '<span class="' + escapeHtml(statusClass) + '">' + escapeHtml(project.status || "") + "</span>" +
+          "</div>" +
+          "<p>" + escapeHtml(project.summary) + "</p>" +
+          '<p class="muted">' + escapeHtml(project.details || "") + "</p>" +
+          '<ul class="chips">' + chips(project.stack || []) + "</ul>" +
+          link +
+          "</div>" +
           "</article>"
-        ].join("");
+        );
       })
       .join("");
   }
@@ -178,15 +156,38 @@
           })
           .join("");
 
-        return [
-          '<article class="timeline-item">',
-          '<p class="eyebrow">' + escapeHtml(exp.start) + " - " + escapeHtml(exp.end) + "</p>",
-          "<h3>" + escapeHtml(exp.title) + "</h3>",
-          '<p class="muted">' + escapeHtml(exp.company) + " | " + escapeHtml(exp.location || "") + "</p>",
-          "<ul>" + highlights + "</ul>",
-          '<ul class="chips">' + chips(exp.stack || []) + "</ul>",
+        return (
+          '<article class="exp-item reveal">' +
+          '<div class="exp-meta">' +
+          '<div class="exp-period">' + escapeHtml(exp.start) + " &ndash; " + escapeHtml(exp.end) + "</div>" +
+          '<div class="exp-company">' + escapeHtml(exp.company) + "</div>" +
+          '<div class="exp-location">' + escapeHtml(exp.location || "") + "</div>" +
+          "</div>" +
+          '<div class="exp-body">' +
+          "<h3>" + escapeHtml(exp.title) + "</h3>" +
+          "<ul>" + highlights + "</ul>" +
+          '<ul class="chips">' + chips(exp.stack || []) + "</ul>" +
+          "</div>" +
           "</article>"
-        ].join("");
+        );
+      })
+      .join("");
+  }
+
+  function renderEducation(profile) {
+    var listEl = document.getElementById("educationList");
+    if (!listEl) return;
+
+    listEl.innerHTML = (profile.education || [])
+      .map(function (edu) {
+        return (
+          '<article class="edu-card reveal">' +
+          "<h3>" + escapeHtml(edu.school || "") + "</h3>" +
+          '<p class="degree">' + escapeHtml(edu.degree || "") + "</p>" +
+          '<p class="period muted">' + escapeHtml(edu.period || "") + "</p>" +
+          (edu.note ? "<p>" + escapeHtml(edu.note) + "</p>" : "") +
+          "</article>"
+        );
       })
       .join("");
   }
@@ -205,17 +206,15 @@
       expEl.innerHTML = (profile.experience || [])
         .map(function (exp) {
           var bullets = (exp.highlights || [])
-            .map(function (h) {
-              return "<li>" + escapeHtml(h) + "</li>";
-            })
+            .map(function (h) { return "<li>" + escapeHtml(h) + "</li>"; })
             .join("");
-          return [
-            '<article class="resume-item">',
-            "<h3>" + escapeHtml(exp.title) + " - " + escapeHtml(exp.company) + "</h3>",
-            '<p class="muted">' + escapeHtml(exp.start) + " - " + escapeHtml(exp.end) + " | " + escapeHtml(exp.location || "") + "</p>",
-            "<ul>" + bullets + "</ul>",
+          return (
+            '<article class="panel" style="margin-bottom:0.75rem">' +
+            "<h3>" + escapeHtml(exp.title) + " &mdash; " + escapeHtml(exp.company) + "</h3>" +
+            '<p class="muted">' + escapeHtml(exp.start) + " &ndash; " + escapeHtml(exp.end) + " | " + escapeHtml(exp.location || "") + "</p>" +
+            "<ul>" + bullets + "</ul>" +
             "</article>"
-          ].join("");
+          );
         })
         .join("");
     }
@@ -224,33 +223,43 @@
     if (projectEl) {
       projectEl.innerHTML = (profile.projects || [])
         .map(function (project) {
-          return [
-            '<article class="resume-item">',
-            "<h3>" + escapeHtml(project.name) + "</h3>",
-            "<p>" + escapeHtml(project.summary) + "</p>",
+          return (
+            '<article class="panel" style="margin-bottom:0.75rem">' +
+            "<h3>" + escapeHtml(project.name) + "</h3>" +
+            "<p>" + escapeHtml(project.summary) + "</p>" +
             "</article>"
-          ].join("");
+          );
         })
         .join("");
     }
   }
 
-  function renderEducation(profile) {
-    var listEl = document.getElementById("educationList");
-    if (!listEl) return;
+  function setupReveal() {
+    var items = Array.from(document.querySelectorAll(".reveal"));
+    if (!items.length) return;
 
-    listEl.innerHTML = (profile.education || [])
-      .map(function (edu) {
-        return [
-          '<article class="card detail">',
-          "<h3>" + escapeHtml(edu.school || "") + "</h3>",
-          '<p class="muted">' + escapeHtml(edu.degree || "") + "</p>",
-          '<p class="muted">' + escapeHtml(edu.period || "") + "</p>",
-          edu.note ? "<p>" + escapeHtml(edu.note) + "</p>" : "",
-          "</article>"
-        ].join("");
-      })
-      .join("");
+    items.forEach(function (el, index) {
+      el.style.transitionDelay = Math.min(index * 30, 120) + "ms";
+    });
+
+    if (!("IntersectionObserver" in window)) {
+      items.forEach(function (el) { el.classList.add("is-visible"); });
+      return;
+    }
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08 }
+    );
+
+    items.forEach(function (el) { observer.observe(el); });
   }
 
   function renderPage(profile) {
@@ -263,13 +272,22 @@
     setupReveal();
   }
 
+  function updateActiveLink(page) {
+    document.querySelectorAll(".menu a").forEach(function (a) {
+      a.classList.remove("active");
+    });
+    var activeHref = page === "home" ? "index.html" : page + ".html";
+    var activeEl = document.querySelector('.menu a[href="' + activeHref + '"]');
+    if (activeEl) activeEl.classList.add("active");
+  }
+
   function shouldHandleNav(link) {
     if (!link) return false;
     if (link.target && link.target.toLowerCase() === "_blank") return false;
     if (link.hasAttribute("download")) return false;
     if (link.getAttribute("rel") === "external") return false;
-    if (link.getAttribute("href").indexOf("#") === 0) return false;
     var href = link.getAttribute("href") || "";
+    if (href.indexOf("#") === 0) return false;
     if (href.indexOf("mailto:") === 0 || href.indexOf("tel:") === 0) return false;
     var url = new URL(link.href, window.location.origin);
     if (url.origin !== window.location.origin) return false;
@@ -278,8 +296,7 @@
 
   async function navigate(url, profile, push) {
     var content = document.querySelector(".content");
-    var rail = document.querySelector(".rail");
-    if (!content || !rail) {
+    if (!content) {
       window.location.href = url;
       return;
     }
@@ -291,20 +308,19 @@
       var html = await res.text();
       var doc = new DOMParser().parseFromString(html, "text/html");
 
-      var nextRail = doc.querySelector(".rail");
       var nextContent = doc.querySelector(".content");
-      if (!nextRail || !nextContent) throw new Error("Invalid target page structure");
+      if (!nextContent) throw new Error("Invalid target page structure");
 
-      rail.innerHTML = nextRail.innerHTML;
       content.innerHTML = nextContent.innerHTML;
-      document.body.setAttribute("data-page", doc.body.getAttribute("data-page") || "home");
+      var nextPage = doc.body.getAttribute("data-page") || "home";
+      document.body.setAttribute("data-page", nextPage);
       document.title = doc.title || document.title;
 
-      if (push) {
-        history.pushState({}, "", url);
-      }
+      updateActiveLink(nextPage);
 
+      if (push) history.pushState({}, "", url);
       window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+
       renderNav(profile);
       renderPage(profile);
     } catch (_err) {
